@@ -44,7 +44,7 @@ export default function Benefits() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: index * 0.2 }}
-              className="text-center"
+              className="text-center bg-sand/20 rounded-3xl p-8 shadow-luxury hover:shadow-luxury-lg transition-all duration-300"
             >
               <div className="text-6xl mb-4">{benefit.icon}</div>
               <h3 className="text-2xl font-serif text-warm-gray mb-4">

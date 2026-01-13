@@ -11,7 +11,7 @@ export default function Navbar() {
   const totalItems = getTotalItems();
 
   return (
-    <nav className="sticky top-0 z-50 bg-ivory/95 backdrop-blur-sm border-b border-sand/50">
+    <nav className="sticky top-0 z-50 bg-ivory/95 backdrop-blur-sm border-b-2 border-sand/30 shadow-md">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-20">
           {/* Logo */}

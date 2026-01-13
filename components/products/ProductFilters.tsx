@@ -20,7 +20,7 @@ export default function ProductFilters({
   setPriceRange,
 }: ProductFiltersProps) {
   return (
-    <div className="bg-sand/30 rounded-lg p-6 space-y-6 sticky top-24">
+    <div className="bg-sand/30 rounded-3xl p-6 space-y-6 sticky top-24 shadow-luxury">
       <h3 className="text-xl font-serif text-warm-gray mb-4">Filters</h3>
 
       {/* Category Filter */}
@@ -82,7 +82,7 @@ export default function ProductFilters({
               onChange={(e) =>
                 setPriceRange([Number(e.target.value), priceRange[1]])
               }
-              className="w-20 px-3 py-2 rounded border border-sand bg-ivory text-warm-gray focus:outline-none focus:border-soft-gold"
+              className="w-20 px-3 py-2 rounded-2xl border-2 border-sand bg-ivory text-warm-gray focus:outline-none focus:border-soft-gold focus:shadow-lg transition-all duration-300"
             />
             <span className="text-warm-gray/70">to</span>
             <input
@@ -93,7 +93,7 @@ export default function ProductFilters({
               onChange={(e) =>
                 setPriceRange([priceRange[0], Number(e.target.value)])
               }
-              className="w-20 px-3 py-2 rounded border border-sand bg-ivory text-warm-gray focus:outline-none focus:border-soft-gold"
+              className="w-20 px-3 py-2 rounded-2xl border-2 border-sand bg-ivory text-warm-gray focus:outline-none focus:border-soft-gold focus:shadow-lg transition-all duration-300"
             />
           </div>
           <input

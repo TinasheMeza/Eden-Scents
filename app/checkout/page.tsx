@@ -5,6 +5,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
 import { useCart } from "@/context/CartContext";
+import { formatPrice } from "@/lib/utils";
 
 export default function CheckoutPage() {
   const { cart, updateQuantity, removeFromCart, getTotalPrice, clearCart } = useCart();
@@ -17,7 +18,7 @@ export default function CheckoutPage() {
     city: "",
     state: "",
     zip: "",
-    country: "United States",
+    country: "South Africa",
     cardNumber: "",
     cardName: "",
     expiry: "",
@@ -25,8 +26,8 @@ export default function CheckoutPage() {
   });
 
   const subtotal = getTotalPrice();
-  const shipping = subtotal > 100 ? 0 : 10;
-  const tax = subtotal * 0.08;
+  const shipping = subtotal > 1800 ? 0 : 180; // Free shipping over R1800
+  const tax = subtotal * 0.15; // 15% VAT
   const total = subtotal + shipping + tax;
 
   const handlePlaceOrder = () => {
@@ -43,7 +44,7 @@ export default function CheckoutPage() {
           <p className="text-warm-gray/70 mb-8">Start shopping to add items to your cart.</p>
           <Link
             href="/products"
-            className="inline-block bg-soft-gold text-warm-gray px-8 py-4 rounded font-medium hover:bg-soft-gold/90 transition-colors"
+            className="inline-block bg-soft-gold text-warm-gray px-8 py-4 rounded-2xl font-medium hover:bg-soft-gold/90 transition-all duration-300 shadow-luxury hover:shadow-luxury-lg"
           >
             Shop Products
           </Link>
@@ -84,7 +85,7 @@ export default function CheckoutPage() {
           </p>
           <Link
             href="/products"
-            className="inline-block bg-soft-gold text-warm-gray px-8 py-4 rounded font-medium hover:bg-soft-gold/90 transition-colors"
+            className="inline-block bg-soft-gold text-warm-gray px-8 py-4 rounded-2xl font-medium hover:bg-soft-gold/90 transition-all duration-300 shadow-luxury hover:shadow-luxury-lg"
           >
             Continue Shopping
           </Link>
@@ -106,7 +107,7 @@ export default function CheckoutPage() {
               return (
                 <div key={label} className="flex items-center">
                   <div
-                    className={`w-10 h-10 rounded-full flex items-center justify-center font-medium ${
+                    className={`w-12 h-12 rounded-2xl flex items-center justify-center font-medium shadow-md ${
                       isActive
                         ? "bg-soft-gold text-warm-gray"
                         : "bg-sand text-warm-gray/50"
@@ -141,7 +142,7 @@ export default function CheckoutPage() {
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
-                className="bg-sand/30 rounded-lg p-6 space-y-6"
+                className="bg-sand/30 rounded-3xl p-8 space-y-6 shadow-luxury"
               >
                 <h2 className="text-2xl font-serif text-warm-gray mb-6">Shopping Cart</h2>
                 {cart.map((item) => (
@@ -149,12 +150,12 @@ export default function CheckoutPage() {
                     key={item.product.id}
                     className="flex gap-4 pb-6 border-b border-sand last:border-0"
                   >
-                    <div className="relative w-24 h-24 rounded overflow-hidden bg-sand/50 flex-shrink-0">
+                    <div className="relative w-24 h-24 rounded-2xl overflow-hidden bg-sand/50 flex-shrink-0 shadow-md">
                       <Image
                         src={item.product.image}
                         alt={item.product.name}
                         fill
-                        className="object-cover"
+                        className="object-cover rounded-2xl"
                       />
                     </div>
                     <div className="flex-1">
@@ -166,21 +167,21 @@ export default function CheckoutPage() {
                         <div className="flex items-center gap-3">
                           <button
                             onClick={() => updateQuantity(item.product.id, item.quantity - 1)}
-                            className="w-8 h-8 rounded border border-sand flex items-center justify-center hover:border-soft-gold transition-colors"
+                            className="w-10 h-10 rounded-2xl border-2 border-sand flex items-center justify-center hover:border-soft-gold hover:bg-soft-gold/5 transition-all duration-300 shadow-md hover:shadow-lg"
                           >
                             −
                           </button>
-                          <span className="w-8 text-center">{item.quantity}</span>
+                          <span className="w-10 text-center font-medium">{item.quantity}</span>
                           <button
                             onClick={() => updateQuantity(item.product.id, item.quantity + 1)}
-                            className="w-8 h-8 rounded border border-sand flex items-center justify-center hover:border-soft-gold transition-colors"
+                            className="w-10 h-10 rounded-2xl border-2 border-sand flex items-center justify-center hover:border-soft-gold hover:bg-soft-gold/5 transition-all duration-300 shadow-md hover:shadow-lg"
                           >
                             +
                           </button>
                         </div>
                         <div className="text-right">
-                          <p className="font-serif text-soft-gold">
-                            ${(item.product.price * item.quantity).toFixed(2)}
+                          <p className="font-serif text-soft-gold text-lg">
+                            {formatPrice(item.product.price * item.quantity)}
                           </p>
                           <button
                             onClick={() => removeFromCart(item.product.id)}
@@ -195,7 +196,7 @@ export default function CheckoutPage() {
                 ))}
                 <button
                   onClick={() => setStep("shipping")}
-                  className="w-full bg-soft-gold text-warm-gray py-4 rounded font-medium hover:bg-soft-gold/90 transition-colors"
+                  className="w-full bg-soft-gold text-warm-gray py-4 rounded-2xl font-medium hover:bg-soft-gold/90 transition-all duration-300 shadow-luxury hover:shadow-luxury-lg"
                 >
                   Proceed to Shipping
                 </button>
@@ -206,7 +207,7 @@ export default function CheckoutPage() {
               <motion.div
                 initial={{ opacity: 0, x: 20 }}
                 animate={{ opacity: 1, x: 0 }}
-                className="bg-sand/30 rounded-lg p-6"
+                className="bg-sand/30 rounded-3xl p-8 shadow-luxury"
               >
                 <h2 className="text-2xl font-serif text-warm-gray mb-6">Shipping Information</h2>
                 <form
@@ -225,7 +226,7 @@ export default function CheckoutPage() {
                       value={formData.email}
                       onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                       required
-                      className="w-full px-4 py-3 rounded border border-sand bg-ivory text-warm-gray focus:outline-none focus:border-soft-gold"
+                      className="w-full px-4 py-3 rounded-2xl border-2 border-sand bg-ivory text-warm-gray focus:outline-none focus:border-soft-gold focus:shadow-lg transition-all duration-300"
                     />
                   </div>
                   <div className="grid grid-cols-2 gap-4">
@@ -240,7 +241,7 @@ export default function CheckoutPage() {
                           setFormData({ ...formData, firstName: e.target.value })
                         }
                         required
-                        className="w-full px-4 py-3 rounded border border-sand bg-ivory text-warm-gray focus:outline-none focus:border-soft-gold"
+                        className="w-full px-4 py-3 rounded-2xl border-2 border-sand bg-ivory text-warm-gray focus:outline-none focus:border-soft-gold focus:shadow-lg transition-all duration-300"
                       />
                     </div>
                     <div>
@@ -254,7 +255,7 @@ export default function CheckoutPage() {
                           setFormData({ ...formData, lastName: e.target.value })
                         }
                         required
-                        className="w-full px-4 py-3 rounded border border-sand bg-ivory text-warm-gray focus:outline-none focus:border-soft-gold"
+                        className="w-full px-4 py-3 rounded-2xl border-2 border-sand bg-ivory text-warm-gray focus:outline-none focus:border-soft-gold focus:shadow-lg transition-all duration-300"
                       />
                     </div>
                   </div>
@@ -267,7 +268,7 @@ export default function CheckoutPage() {
                       value={formData.address}
                       onChange={(e) => setFormData({ ...formData, address: e.target.value })}
                       required
-                      className="w-full px-4 py-3 rounded border border-sand bg-ivory text-warm-gray focus:outline-none focus:border-soft-gold"
+                      className="w-full px-4 py-3 rounded-2xl border-2 border-sand bg-ivory text-warm-gray focus:outline-none focus:border-soft-gold focus:shadow-lg transition-all duration-300"
                     />
                   </div>
                   <div className="grid grid-cols-3 gap-4">
@@ -280,7 +281,7 @@ export default function CheckoutPage() {
                         value={formData.city}
                         onChange={(e) => setFormData({ ...formData, city: e.target.value })}
                         required
-                        className="w-full px-4 py-3 rounded border border-sand bg-ivory text-warm-gray focus:outline-none focus:border-soft-gold"
+                        className="w-full px-4 py-3 rounded-2xl border-2 border-sand bg-ivory text-warm-gray focus:outline-none focus:border-soft-gold focus:shadow-lg transition-all duration-300"
                       />
                     </div>
                     <div>
@@ -292,7 +293,7 @@ export default function CheckoutPage() {
                         value={formData.state}
                         onChange={(e) => setFormData({ ...formData, state: e.target.value })}
                         required
-                        className="w-full px-4 py-3 rounded border border-sand bg-ivory text-warm-gray focus:outline-none focus:border-soft-gold"
+                        className="w-full px-4 py-3 rounded-2xl border-2 border-sand bg-ivory text-warm-gray focus:outline-none focus:border-soft-gold focus:shadow-lg transition-all duration-300"
                       />
                     </div>
                     <div>
@@ -304,7 +305,7 @@ export default function CheckoutPage() {
                         value={formData.zip}
                         onChange={(e) => setFormData({ ...formData, zip: e.target.value })}
                         required
-                        className="w-full px-4 py-3 rounded border border-sand bg-ivory text-warm-gray focus:outline-none focus:border-soft-gold"
+                        className="w-full px-4 py-3 rounded-2xl border-2 border-sand bg-ivory text-warm-gray focus:outline-none focus:border-soft-gold focus:shadow-lg transition-all duration-300"
                       />
                     </div>
                   </div>
@@ -331,7 +332,7 @@ export default function CheckoutPage() {
               <motion.div
                 initial={{ opacity: 0, x: 20 }}
                 animate={{ opacity: 1, x: 0 }}
-                className="bg-sand/30 rounded-lg p-6"
+                className="bg-sand/30 rounded-3xl p-8 shadow-luxury"
               >
                 <h2 className="text-2xl font-serif text-warm-gray mb-6">Payment Information</h2>
                 <form
@@ -353,7 +354,7 @@ export default function CheckoutPage() {
                       }
                       placeholder="1234 5678 9012 3456"
                       required
-                      className="w-full px-4 py-3 rounded border border-sand bg-ivory text-warm-gray focus:outline-none focus:border-soft-gold"
+                      className="w-full px-4 py-3 rounded-2xl border-2 border-sand bg-ivory text-warm-gray focus:outline-none focus:border-soft-gold focus:shadow-lg transition-all duration-300"
                     />
                   </div>
                   <div>
@@ -365,7 +366,7 @@ export default function CheckoutPage() {
                       value={formData.cardName}
                       onChange={(e) => setFormData({ ...formData, cardName: e.target.value })}
                       required
-                      className="w-full px-4 py-3 rounded border border-sand bg-ivory text-warm-gray focus:outline-none focus:border-soft-gold"
+                      className="w-full px-4 py-3 rounded-2xl border-2 border-sand bg-ivory text-warm-gray focus:outline-none focus:border-soft-gold focus:shadow-lg transition-all duration-300"
                     />
                   </div>
                   <div className="grid grid-cols-2 gap-4">
@@ -379,7 +380,7 @@ export default function CheckoutPage() {
                         onChange={(e) => setFormData({ ...formData, expiry: e.target.value })}
                         placeholder="MM/YY"
                         required
-                        className="w-full px-4 py-3 rounded border border-sand bg-ivory text-warm-gray focus:outline-none focus:border-soft-gold"
+                        className="w-full px-4 py-3 rounded-2xl border-2 border-sand bg-ivory text-warm-gray focus:outline-none focus:border-soft-gold focus:shadow-lg transition-all duration-300"
                       />
                     </div>
                     <div>
@@ -390,7 +391,7 @@ export default function CheckoutPage() {
                         onChange={(e) => setFormData({ ...formData, cvv: e.target.value })}
                         placeholder="123"
                         required
-                        className="w-full px-4 py-3 rounded border border-sand bg-ivory text-warm-gray focus:outline-none focus:border-soft-gold"
+                        className="w-full px-4 py-3 rounded-2xl border-2 border-sand bg-ivory text-warm-gray focus:outline-none focus:border-soft-gold focus:shadow-lg transition-all duration-300"
                       />
                     </div>
                   </div>
@@ -398,13 +399,13 @@ export default function CheckoutPage() {
                     <button
                       type="button"
                       onClick={() => setStep("shipping")}
-                      className="flex-1 border border-sand text-warm-gray py-3 rounded font-medium hover:bg-sand/50 transition-colors"
+                      className="flex-1 border-2 border-sand text-warm-gray py-3 rounded-2xl font-medium hover:bg-sand/50 transition-all duration-300 shadow-md hover:shadow-lg"
                     >
                       Back
                     </button>
                     <button
                       type="submit"
-                      className="flex-1 bg-soft-gold text-warm-gray py-3 rounded font-medium hover:bg-soft-gold/90 transition-colors"
+                      className="flex-1 bg-soft-gold text-warm-gray py-3 rounded-2xl font-medium hover:bg-soft-gold/90 transition-all duration-300 shadow-luxury hover:shadow-luxury-lg"
                     >
                       Place Order
                     </button>
@@ -416,7 +417,7 @@ export default function CheckoutPage() {
 
           {/* Order Summary Sidebar */}
           <div className="lg:sticky lg:top-24 h-fit">
-            <div className="bg-sand/30 rounded-lg p-6">
+            <div className="bg-sand/30 rounded-3xl p-6 shadow-luxury">
               <h3 className="text-xl font-serif text-warm-gray mb-6">Order Summary</h3>
               <div className="space-y-4 mb-6">
                 {cart.map((item) => (
@@ -424,8 +425,8 @@ export default function CheckoutPage() {
                     <span className="text-warm-gray/70">
                       {item.product.name} × {item.quantity}
                     </span>
-                    <span className="text-warm-gray">
-                      ${(item.product.price * item.quantity).toFixed(2)}
+                    <span className="text-warm-gray font-medium">
+                      {formatPrice(item.product.price * item.quantity)}
                     </span>
                   </div>
                 ))}
@@ -433,21 +434,21 @@ export default function CheckoutPage() {
               <div className="border-t border-sand pt-4 space-y-2 text-sm">
                 <div className="flex justify-between">
                   <span className="text-warm-gray/70">Subtotal</span>
-                  <span className="text-warm-gray">${subtotal.toFixed(2)}</span>
+                  <span className="text-warm-gray font-medium">{formatPrice(subtotal)}</span>
                 </div>
                 <div className="flex justify-between">
                   <span className="text-warm-gray/70">Shipping</span>
-                  <span className="text-warm-gray">
-                    {shipping === 0 ? "Free" : `$${shipping.toFixed(2)}`}
+                  <span className="text-warm-gray font-medium">
+                    {shipping === 0 ? "Free" : formatPrice(shipping)}
                   </span>
                 </div>
                 <div className="flex justify-between">
-                  <span className="text-warm-gray/70">Tax</span>
-                  <span className="text-warm-gray">${tax.toFixed(2)}</span>
+                  <span className="text-warm-gray/70">VAT (15%)</span>
+                  <span className="text-warm-gray font-medium">{formatPrice(tax)}</span>
                 </div>
                 <div className="flex justify-between text-lg font-serif pt-2 border-t border-sand">
                   <span className="text-warm-gray">Total</span>
-                  <span className="text-soft-gold">${total.toFixed(2)}</span>
+                  <span className="text-soft-gold">{formatPrice(total)}</span>
                 </div>
               </div>
             </div>

@@ -4,6 +4,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { motion } from "framer-motion";
 import { Product } from "@/data/products";
+import { formatPrice } from "@/lib/utils";
 
 interface ProductGridProps {
   products: Product[];
@@ -28,8 +29,8 @@ export default function ProductGrid({ products }: ProductGridProps) {
           transition={{ duration: 0.4, delay: index * 0.05 }}
         >
           <Link href={`/products/${product.id}`} className="group block">
-            <div className="bg-sand/30 rounded-lg overflow-hidden">
-              <div className="relative aspect-square">
+            <div className="bg-sand/30 rounded-3xl overflow-hidden shadow-luxury hover:shadow-luxury-lg transition-all duration-300">
+              <div className="relative aspect-square rounded-t-3xl overflow-hidden">
                 <Image
                   src={product.image}
                   alt={product.name}
@@ -37,18 +38,18 @@ export default function ProductGrid({ products }: ProductGridProps) {
                   className="object-cover group-hover:scale-105 transition-transform duration-300"
                 />
                 {product.limitedBatch && (
-                  <div className="absolute top-3 right-3 bg-soft-gold text-white text-xs px-2 py-1 rounded">
+                  <div className="absolute top-3 right-3 bg-soft-gold text-white text-xs px-3 py-1.5 rounded-full shadow-lg">
                     Limited Batch
                   </div>
                 )}
-                <div className="absolute inset-0 bg-black/0 group-hover:bg-black/5 transition-colors" />
+                <div className="absolute inset-0 bg-black/0 group-hover:bg-black/5 transition-colors rounded-t-3xl" />
               </div>
               <div className="p-6">
                 <div className="flex items-start justify-between mb-2">
                   <h3 className="text-xl font-serif text-warm-gray group-hover:text-soft-gold transition-colors">
                     {product.name}
                   </h3>
-                  <span className="text-xs text-warm-gray/60 uppercase bg-sand/50 px-2 py-1 rounded">
+                  <span className="text-xs text-warm-gray/60 uppercase bg-sand/50 px-3 py-1 rounded-full">
                     {product.category}
                   </span>
                 </div>
@@ -57,7 +58,7 @@ export default function ProductGrid({ products }: ProductGridProps) {
                 </p>
                 <div className="flex items-center justify-between">
                   <p className="text-2xl font-serif text-soft-gold">
-                    ${product.price}
+                    {formatPrice(product.price)}
                   </p>
                   <span className="text-sm text-warm-gray/60 hover:text-soft-gold transition-colors">
                     Quick View →

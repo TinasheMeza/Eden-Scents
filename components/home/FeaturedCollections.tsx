@@ -4,6 +4,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { motion } from "framer-motion";
 import { products } from "@/data/products";
+import { formatPrice } from "@/lib/utils";
 
 export default function FeaturedCollections() {
   const candles = products.filter((p) => p.category === "candles").slice(0, 3);
@@ -55,9 +56,9 @@ export default function FeaturedCollections() {
                 <motion.div
                   whileHover={{ y: -8 }}
                   transition={{ duration: 0.3 }}
-                  className="bg-sand/30 rounded-lg overflow-hidden"
+                  className="bg-sand/30 rounded-3xl overflow-hidden shadow-luxury hover:shadow-luxury-lg transition-all duration-300"
                 >
-                  <div className="relative aspect-square">
+                  <div className="relative aspect-square rounded-t-3xl overflow-hidden">
                     <Image
                       src={candle.image}
                       alt={candle.name}
@@ -71,7 +72,7 @@ export default function FeaturedCollections() {
                     </h4>
                     <p className="text-warm-gray/70 mb-4">{candle.description}</p>
                     <p className="text-2xl font-serif text-soft-gold">
-                      ${candle.price}
+                      {formatPrice(candle.price)}
                     </p>
                   </div>
                 </motion.div>
@@ -106,9 +107,9 @@ export default function FeaturedCollections() {
                 <motion.div
                   whileHover={{ y: -8 }}
                   transition={{ duration: 0.3 }}
-                  className="bg-sand/30 rounded-lg overflow-hidden"
+                  className="bg-sand/30 rounded-3xl overflow-hidden shadow-luxury hover:shadow-luxury-lg transition-all duration-300"
                 >
-                  <div className="relative aspect-square">
+                  <div className="relative aspect-square rounded-t-3xl overflow-hidden">
                     <Image
                       src={fragrance.image}
                       alt={fragrance.name}
@@ -122,7 +123,7 @@ export default function FeaturedCollections() {
                     </h4>
                     <p className="text-warm-gray/70 mb-4">{fragrance.description}</p>
                     <p className="text-2xl font-serif text-soft-gold">
-                      ${fragrance.price}
+                      {formatPrice(fragrance.price)}
                     </p>
                   </div>
                 </motion.div>

@@ -45,13 +45,13 @@ export default function Hero() {
         >
           <Link
             href="/products?category=candles"
-            className="bg-soft-gold text-warm-gray px-8 py-4 rounded font-medium hover:bg-soft-gold/90 transition-colors text-lg"
+            className="bg-soft-gold text-warm-gray px-8 py-4 rounded-2xl font-medium hover:bg-soft-gold/90 transition-all duration-300 shadow-luxury hover:shadow-luxury-lg text-lg"
           >
             Shop Candles
           </Link>
           <Link
             href="/products?category=fragrances"
-            className="bg-warm-gray text-ivory px-8 py-4 rounded font-medium hover:bg-warm-gray/90 transition-colors text-lg"
+            className="bg-warm-gray text-ivory px-8 py-4 rounded-2xl font-medium hover:bg-warm-gray/90 transition-all duration-300 shadow-luxury hover:shadow-luxury-lg text-lg"
           >
             Explore Fragrances
           </Link>

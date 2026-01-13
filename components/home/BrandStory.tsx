@@ -13,7 +13,7 @@ export default function BrandStory() {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="relative aspect-square rounded-lg overflow-hidden"
+            className="relative aspect-square rounded-3xl overflow-hidden shadow-luxury-lg"
           >
             <Image
               src="https://images.unsplash.com/photo-1602143407151-7111542de6e8?w=800&h=800&fit=crop"

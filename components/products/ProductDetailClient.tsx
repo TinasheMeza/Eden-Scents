@@ -5,6 +5,7 @@ import { useState } from "react";
 import { motion } from "framer-motion";
 import { useCart } from "@/context/CartContext";
 import { Product } from "@/data/products";
+import { formatPrice } from "@/lib/utils";
 
 interface ProductDetailClientProps {
   product: Product;
@@ -31,17 +32,17 @@ export default function ProductDetailClient({ product }: ProductDetailClientProp
             initial={{ opacity: 0, x: -20 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.6 }}
-            className="relative aspect-square rounded-lg overflow-hidden bg-sand/30"
+            className="relative aspect-square rounded-3xl overflow-hidden bg-sand/30 shadow-luxury-lg"
           >
             <Image
               src={product.image}
               alt={product.name}
               fill
-              className="object-cover"
+              className="object-cover rounded-3xl"
               priority
             />
             {product.limitedBatch && (
-              <div className="absolute top-4 left-4 bg-soft-gold text-white px-4 py-2 rounded">
+              <div className="absolute top-4 left-4 bg-soft-gold text-white px-4 py-2 rounded-full shadow-lg">
                 Limited Batch
               </div>
             )}
@@ -62,7 +63,7 @@ export default function ProductDetailClient({ product }: ProductDetailClientProp
                 {product.name}
               </h1>
               <p className="text-3xl font-serif text-soft-gold mb-6">
-                ${product.price}
+                {formatPrice(product.price)}
               </p>
             </div>
 
@@ -114,11 +115,11 @@ export default function ProductDetailClient({ product }: ProductDetailClientProp
                 <div className="flex gap-3">
                   <button
                     onClick={() => setSize(product.size || "default")}
-                    className={`px-4 py-2 rounded border ${
+                    className={`px-6 py-3 rounded-2xl border-2 ${
                       size === product.size
-                        ? "border-soft-gold bg-soft-gold/10 text-soft-gold"
-                        : "border-sand text-warm-gray hover:border-soft-gold"
-                    } transition-colors`}
+                        ? "border-soft-gold bg-soft-gold/10 text-soft-gold shadow-lg"
+                        : "border-sand text-warm-gray hover:border-soft-gold hover:shadow-md"
+                    } transition-all duration-300`}
                   >
                     {product.size}
                   </button>
@@ -132,16 +133,16 @@ export default function ProductDetailClient({ product }: ProductDetailClientProp
               <div className="flex items-center gap-4">
                 <button
                   onClick={() => setQuantity(Math.max(1, quantity - 1))}
-                  className="w-10 h-10 rounded border border-sand flex items-center justify-center hover:border-soft-gold transition-colors"
+                  className="w-12 h-12 rounded-2xl border-2 border-sand flex items-center justify-center hover:border-soft-gold hover:bg-soft-gold/5 transition-all duration-300 shadow-md hover:shadow-lg"
                 >
                   −
                 </button>
-                <span className="text-xl font-medium text-warm-gray w-12 text-center">
+                <span className="text-xl font-medium text-warm-gray w-16 text-center">
                   {quantity}
                 </span>
                 <button
                   onClick={() => setQuantity(quantity + 1)}
-                  className="w-10 h-10 rounded border border-sand flex items-center justify-center hover:border-soft-gold transition-colors"
+                  className="w-12 h-12 rounded-2xl border-2 border-sand flex items-center justify-center hover:border-soft-gold hover:bg-soft-gold/5 transition-all duration-300 shadow-md hover:shadow-lg"
                 >
                   +
                 </button>
@@ -152,7 +153,7 @@ export default function ProductDetailClient({ product }: ProductDetailClientProp
             <button
               onClick={handleAddToCart}
               disabled={added}
-              className={`w-full py-4 rounded font-medium text-lg transition-colors ${
+              className={`w-full py-5 rounded-2xl font-medium text-lg transition-all duration-300 shadow-luxury hover:shadow-luxury-lg ${
                 added
                   ? "bg-muted-green text-white"
                   : "bg-soft-gold text-warm-gray hover:bg-soft-gold/90"
@@ -178,10 +179,10 @@ export default function ProductDetailClient({ product }: ProductDetailClientProp
             </div>
 
             {/* Delivery & Returns */}
-            <div className="border-t border-sand pt-6 space-y-2 text-sm text-warm-gray/70">
+            <div className="border-t border-sand pt-6 space-y-2 text-sm text-warm-gray/70 bg-sand/20 rounded-2xl p-4">
               <p>
                 <span className="font-medium text-warm-gray">Free shipping</span> on orders
-                over $100
+                over R1,800
               </p>
               <p>
                 <span className="font-medium text-warm-gray">30-day returns</span> - No

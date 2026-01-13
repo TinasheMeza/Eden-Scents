@@ -15,6 +15,33 @@
   h1, h2, h3, h4, h5, h6 {
     @apply font-serif;
   }
+
+  /* More rounded borders throughout */
+  button, input, select, textarea {
+    @apply rounded-xl;
+  }
+
+  img {
+    @apply rounded-xl;
+  }
+}
+
+@layer components {
+  .card {
+    @apply rounded-2xl shadow-lg;
+  }
+
+  .card-hover {
+    @apply rounded-2xl shadow-lg transition-all duration-300 hover:shadow-2xl hover:-translate-y-1;
+  }
+
+  .luxury-border {
+    @apply rounded-3xl border-2 border-sand/30;
+  }
+
+  .premium-shadow {
+    @apply shadow-[0_10px_40px_rgba(0,0,0,0.08)];
+  }
 }
 
 @layer utilities {

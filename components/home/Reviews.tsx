@@ -58,7 +58,7 @@ export default function Reviews() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: index * 0.1 }}
-              className="bg-sand/30 rounded-lg p-6"
+              className="bg-sand/30 rounded-3xl p-6 shadow-luxury hover:shadow-luxury-lg transition-all duration-300"
             >
               <div className="flex gap-1 mb-4">
                 {[...Array(review.rating)].map((_, i) => (
@@ -68,7 +68,7 @@ export default function Reviews() {
                 ))}
               </div>
               <p className="text-warm-gray/80 mb-4 leading-relaxed italic">
-                "{review.text}"
+                &ldquo;{review.text}&rdquo;
               </p>
               <div className="border-t border-sand pt-4">
                 <p className="font-medium text-warm-gray">{review.name}</p>

@@ -19,6 +19,15 @@ const config: Config = {
         serif: ["var(--font-serif)", "Georgia", "serif"],
         sans: ["var(--font-sans)", "system-ui", "sans-serif"],
       },
+      borderRadius: {
+        'xl': '1rem',
+        '2xl': '1.5rem',
+        '3xl': '2rem',
+      },
+      boxShadow: {
+        'luxury': '0 20px 60px rgba(0, 0, 0, 0.1)',
+        'luxury-lg': '0 25px 80px rgba(0, 0, 0, 0.12)',
+      },
     },
   },
   plugins: [],

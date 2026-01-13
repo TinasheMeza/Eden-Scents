@@ -81,11 +81,11 @@ export default function Footer() {
               <input
                 type="email"
                 placeholder="Your email"
-                className="bg-ivory/10 border border-ivory/20 rounded px-4 py-2 text-sm text-ivory placeholder:text-ivory/50 focus:outline-none focus:border-soft-gold"
+                className="bg-ivory/10 border-2 border-ivory/20 rounded-2xl px-4 py-2 text-sm text-ivory placeholder:text-ivory/50 focus:outline-none focus:border-soft-gold focus:shadow-lg transition-all duration-300"
               />
               <button
                 type="submit"
-                className="bg-soft-gold text-warm-gray px-4 py-2 rounded text-sm font-medium hover:bg-soft-gold/90 transition-colors"
+                className="bg-soft-gold text-warm-gray px-4 py-2 rounded-2xl text-sm font-medium hover:bg-soft-gold/90 transition-all duration-300 shadow-md hover:shadow-lg"
               >
                 Subscribe
               </button>

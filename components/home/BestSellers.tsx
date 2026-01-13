@@ -4,6 +4,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { motion } from "framer-motion";
 import { products } from "@/data/products";
+import { formatPrice } from "@/lib/utils";
 
 export default function BestSellers() {
   // Get a mix of best sellers (first 6 products)
@@ -37,15 +38,15 @@ export default function BestSellers() {
               transition={{ duration: 0.6, delay: index * 0.1 }}
             >
               <Link href={`/products/${product.id}`} className="group block">
-                <div className="relative aspect-square mb-4 rounded-lg overflow-hidden bg-sand/30">
+                <div className="relative aspect-square mb-4 rounded-3xl overflow-hidden bg-sand/30 shadow-luxury hover:shadow-luxury-lg transition-all duration-300">
                   <Image
                     src={product.image}
                     alt={product.name}
                     fill
-                    className="object-cover group-hover:scale-105 transition-transform duration-300"
+                    className="object-cover group-hover:scale-105 transition-transform duration-300 rounded-3xl"
                   />
                   {product.limitedBatch && (
-                    <div className="absolute top-2 right-2 bg-soft-gold text-white text-xs px-2 py-1 rounded">
+                    <div className="absolute top-2 right-2 bg-soft-gold text-white text-xs px-3 py-1.5 rounded-full shadow-lg">
                       Limited
                     </div>
                   )}
@@ -54,7 +55,7 @@ export default function BestSellers() {
                   {product.name}
                 </h4>
                 <p className="text-soft-gold font-medium text-sm md:text-base">
-                  ${product.price}
+                  {formatPrice(product.price)}
                 </p>
               </Link>
             </motion.div>
@@ -70,7 +71,7 @@ export default function BestSellers() {
         >
           <Link
             href="/products"
-            className="inline-block bg-warm-gray text-ivory px-8 py-4 rounded font-medium hover:bg-warm-gray/90 transition-colors"
+            className="inline-block bg-warm-gray text-ivory px-8 py-4 rounded-2xl font-medium hover:bg-warm-gray/90 transition-all duration-300 shadow-luxury hover:shadow-luxury-lg"
           >
             Shop All Products
           </Link>
