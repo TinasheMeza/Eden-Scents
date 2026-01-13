@@ -27,7 +27,7 @@ export const products: Product[] = [
     name: "Amber Sanctuary",
     category: "candles",
     price: 1250,
-    image: "https://images.unsplash.com/photo-1602143407151-7111542de6e8?w=800&h=800&fit=crop",
+    image: "https://images.unsplash.com/photo-1602143407151-7111542de6e8?w=800&h=800&fit=crop&q=80",
     description:
       "A warm, enveloping sanctuary of amber and vanilla resin, deepened with smoked woods. Perfect for evening rituals and moments of deep reflection.",
     scentNotes: {
@@ -46,7 +46,7 @@ export const products: Product[] = [
     name: "Cedar & Sage Ritual",
     category: "candles",
     price: 1195,
-    image: "https://images.unsplash.com/photo-1602143407151-7111542de6e8?w=800&h=800&fit=crop",
+    image: "https://images.unsplash.com/photo-1571771894821-ce9b6c11b08e?w=800&h=800&fit=crop&q=80",
     description:
       "Dry cedarwood meets wild sage in a cleansing ritual blend, softened by subtle musk. Ideal for meditation and space clearing.",
     scentNotes: {
@@ -64,7 +64,7 @@ export const products: Product[] = [
     name: "Fig Noir",
     category: "candles",
     price: 1250,
-    image: "https://images.unsplash.com/photo-1602143407151-7111542de6e8?w=800&h=800&fit=crop",
+    image: "https://images.unsplash.com/photo-1606800054160-8b5e8b8b8b8b?w=800&h=800&fit=crop&q=80",
     description:
       "Rich black fig and tonka bean create a sophisticated, slightly spicy fragrance that lingers beautifully. A modern classic.",
     scentNotes: {
@@ -82,7 +82,7 @@ export const products: Product[] = [
     name: "Linen Dawn",
     category: "candles",
     price: 1145,
-    image: "https://images.unsplash.com/photo-1602143407151-7111542de6e8?w=800&h=800&fit=crop",
+    image: "https://images.unsplash.com/photo-1602143407151-7111542de6e8?w=800&h=800&fit=crop&q=80",
     description:
       "Fresh linen, bright bergamot, and delicate white tea create an airy, uplifting morning atmosphere. Clean and invigorating.",
     scentNotes: {
@@ -100,7 +100,7 @@ export const products: Product[] = [
     name: "Velvet Oud",
     category: "candles",
     price: 1380,
-    image: "https://images.unsplash.com/photo-1602143407151-7111542de6e8?w=800&h=800&fit=crop",
+    image: "https://images.unsplash.com/photo-1602143407151-7111542de6e8?w=800&h=800&fit=crop&q=80",
     description:
       "Luxurious oud, incense smoke, and amber balsam create an opulent, mysterious fragrance. For those who appreciate depth and complexity.",
     scentNotes: {
@@ -119,7 +119,7 @@ export const products: Product[] = [
     name: "Garden Stillness",
     category: "candles",
     price: 1195,
-    image: "https://images.unsplash.com/photo-1602143407151-7111542de6e8?w=800&h=800&fit=crop",
+    image: "https://images.unsplash.com/photo-1571771894821-ce9b6c11b08e?w=800&h=800&fit=crop&q=80",
     description:
       "Jasmine and neroli bloom alongside green leaves in a serene garden composition. Peaceful and naturally elegant.",
     scentNotes: {
@@ -137,7 +137,7 @@ export const products: Product[] = [
     name: "Sandalwood Ember",
     category: "candles",
     price: 1290,
-    image: "https://images.unsplash.com/photo-1602143407151-7111542de6e8?w=800&h=800&fit=crop",
+    image: "https://images.unsplash.com/photo-1602143407151-7111542de6e8?w=800&h=800&fit=crop&q=80",
     description:
       "Creamy sandalwood warmed by clove and amber creates a cozy, meditative atmosphere. Perfect for winter evenings.",
     scentNotes: {
@@ -155,7 +155,7 @@ export const products: Product[] = [
     name: "Rose Dusk",
     category: "candles",
     price: 1250,
-    image: "https://images.unsplash.com/photo-1602143407151-7111542de6e8?w=800&h=800&fit=crop",
+    image: "https://images.unsplash.com/photo-1606800054160-8b5e8b8b8b8b?w=800&h=800&fit=crop&q=80",
     description:
       "Turkish rose, pink pepper, and patchouli create a romantic, slightly earthy fragrance. Elegant and timeless.",
     scentNotes: {
@@ -173,7 +173,7 @@ export const products: Product[] = [
     name: "Moon Milk",
     category: "candles",
     price: 1195,
-    image: "https://images.unsplash.com/photo-1602143407151-7111542de6e8?w=800&h=800&fit=crop",
+    image: "https://images.unsplash.com/photo-1571771894821-ce9b6c11b08e?w=800&h=800&fit=crop&q=80",
     description:
       "Almond, vanilla orchid, and soft woods create a dreamy, comforting fragrance. Perfect for bedtime rituals.",
     scentNotes: {
@@ -192,7 +192,7 @@ export const products: Product[] = [
     name: "Eden No.01",
     category: "fragrances",
     price: 2680,
-    image: "https://images.unsplash.com/photo-1541643600914-78b084683601?w=800&h=800&fit=crop",
+    image: "https://images.unsplash.com/photo-1541643600914-78b084683601?w=800&h=800&fit=crop&q=80",
     description:
       "A luminous opening of bergamot leads to a heart of jasmine, grounded by amberwood. Fresh yet warm, perfect for everyday elegance.",
     scentNotes: {
@@ -209,7 +209,7 @@ export const products: Product[] = [
     name: "Eden No.02",
     category: "fragrances",
     price: 2780,
-    image: "https://images.unsplash.com/photo-1541643600914-78b084683601?w=800&h=800&fit=crop",
+    image: "https://images.unsplash.com/photo-1595425970377-c97037cfb3c5?w=800&h=800&fit=crop&q=80",
     description:
       "Pink pepper sparks against rose absolute, softened by suede. A modern floral with an edge of sophistication.",
     scentNotes: {
@@ -226,7 +226,7 @@ export const products: Product[] = [
     name: "Eden No.03",
     category: "fragrances",
     price: 2870,
-    image: "https://images.unsplash.com/photo-1541643600914-78b084683601?w=800&h=800&fit=crop",
+    image: "https://images.unsplash.com/photo-1615634260167-c8cdede054de?w=800&h=800&fit=crop&q=80",
     description:
       "Vetiver and cedar create a dry, woody foundation, warmed by dry amber. Masculine yet refined, unisex appeal.",
     scentNotes: {
@@ -243,7 +243,7 @@ export const products: Product[] = [
     name: "Eden No.04",
     category: "fragrances",
     price: 2680,
-    image: "https://images.unsplash.com/photo-1541643600914-78b084683601?w=800&h=800&fit=crop",
+    image: "https://images.unsplash.com/photo-1541643600914-78b084683601?w=800&h=800&fit=crop&q=80",
     description:
       "Neroli and orange blossom bloom into white musk. A clean, radiant fragrance that feels like sunshine on skin.",
     scentNotes: {
@@ -260,7 +260,7 @@ export const products: Product[] = [
     name: "Eden No.05",
     category: "fragrances",
     price: 2960,
-    image: "https://images.unsplash.com/photo-1541643600914-78b084683601?w=800&h=800&fit=crop",
+    image: "https://images.unsplash.com/photo-1595425970377-c97037cfb3c5?w=800&h=800&fit=crop&q=80",
     description:
       "Blackcurrant and incense open into warm woods. Dark, mysterious, and deeply sensual. A signature scent for the bold.",
     scentNotes: {
@@ -278,7 +278,7 @@ export const products: Product[] = [
     name: "Eden No.06",
     category: "fragrances",
     price: 2740,
-    image: "https://images.unsplash.com/photo-1541643600914-78b084683601?w=800&h=800&fit=crop",
+    image: "https://images.unsplash.com/photo-1615634260167-c8cdede054de?w=800&h=800&fit=crop&q=80",
     description:
       "Lavender and chamomile blend with soft vanilla. A calming, therapeutic fragrance perfect for moments of rest.",
     scentNotes: {
@@ -295,7 +295,7 @@ export const products: Product[] = [
     name: "Eden No.07",
     category: "fragrances",
     price: 2810,
-    image: "https://images.unsplash.com/photo-1541643600914-78b084683601?w=800&h=800&fit=crop",
+    image: "https://images.unsplash.com/photo-1541643600914-78b084683601?w=800&h=800&fit=crop&q=80",
     description:
       "Grapefruit and mint open to a heart of white flowers, grounded by clean musk. Energizing and effortlessly chic.",
     scentNotes: {
@@ -312,7 +312,7 @@ export const products: Product[] = [
     name: "Eden No.08",
     category: "fragrances",
     price: 2920,
-    image: "https://images.unsplash.com/photo-1541643600914-78b084683601?w=800&h=800&fit=crop",
+    image: "https://images.unsplash.com/photo-1595425970377-c97037cfb3c5?w=800&h=800&fit=crop&q=80",
     description:
       "Tobacco leaf and honey create a rich, warm opening, deepened by oud and patchouli. Luxurious and intoxicating.",
     scentNotes: {
@@ -330,7 +330,7 @@ export const products: Product[] = [
     name: "Eden No.09",
     category: "fragrances",
     price: 2680,
-    image: "https://images.unsplash.com/photo-1541643600914-78b084683601?w=800&h=800&fit=crop",
+    image: "https://images.unsplash.com/photo-1615634260167-c8cdede054de?w=800&h=800&fit=crop&q=80",
     description:
       "Peony and freesia bloom alongside green tea. A delicate, feminine fragrance that feels like a spring garden.",
     scentNotes: {

@@ -10,13 +10,13 @@ export default function Hero() {
       {/* Background Image */}
       <div className="absolute inset-0 z-0">
         <Image
-          src="https://images.unsplash.com/photo-1602143407151-7111542de6e8?w=1920&h=1080&fit=crop"
-          alt="Luxury candles"
+          src="https://images.unsplash.com/photo-1606800054160-8b5e8b8b8b8b?w=1920&h=1080&fit=crop&q=80"
+          alt="Luxury candles and fragrances"
           fill
-          className="object-cover opacity-30"
+          className="object-cover opacity-25"
           priority
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-ivory/80 to-ivory" />
+        <div className="absolute inset-0 bg-gradient-to-b from-ivory/85 via-ivory/75 to-ivory" />
       </div>
 
       {/* Content */}
